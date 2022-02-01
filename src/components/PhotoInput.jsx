@@ -13,7 +13,7 @@ const PhotoInput = ({getSrc,setSrc}) => {
     }
 
   return (
-    <div className='card' >
+    <div>
         <input type="text" placeholder='Enter image url' ref={image} />
         <button onClick={getData} >Submit</button>
         <Card getSrc={getSrc} />
