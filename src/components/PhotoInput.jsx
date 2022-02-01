@@ -19,7 +19,7 @@ const PhotoInput = ({getSrc,setSrc,getInputs, setInputs}) => {
     const image = useRef()
 
   return (
-    <div>
+    <div  >
         <form onSubmit={((e) => {
             e.preventDefault()
             fetch("http://localhost:8080/post", {
@@ -36,8 +36,9 @@ const PhotoInput = ({getSrc,setSrc,getInputs, setInputs}) => {
             <input type="text" onChange={getData} placeholder='Enter image url' ref={image} />
             <button>Submit</button>
         </form>
-
-        {getSrc && getSrc.map((item,i) => <Card getSrc={item.image} key={i} /> )}
+        <div style={{display: "flex", flexWrap: "wrap"}} >
+            {getSrc && getSrc.map((item,i) => <Card getSrc={item.image} key={i} /> )}
+        </div>
         
     </div>
   )
