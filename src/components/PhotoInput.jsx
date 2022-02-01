@@ -34,10 +34,10 @@ const PhotoInput = ({getSrc,setSrc,getInputs, setInputs}) => {
         })} >
             
             <input type="text" onChange={getData} placeholder='Enter image url' ref={image} />
-            <button onClick={getData} >Submit</button>
+            <button>Submit</button>
         </form>
 
-        {getSrc && getSrc.map((item) => <Card getSrc={item.image} /> )}
+        {getSrc && getSrc.map((item,i) => <Card getSrc={item.image} key={i} /> )}
         
     </div>
   )
