@@ -3,7 +3,8 @@ import Card from './Card';
 
 
 
-const PhotoInput = ({getSrc,setSrc,getInputs, setInputs}) => {
+
+const PhotoInput = ({getSrc,setSrc,getInputs, setInputs,setNotification, getNotification}) => {
     
     function getData(){
         const src = image.current.value
@@ -30,12 +31,13 @@ const PhotoInput = ({getSrc,setSrc,getInputs, setInputs}) => {
                 body: JSON.stringify({image: getInputs})
             })
                 .then(res => res.json())
-                .then(data => alert(data.msg))
+                .then(data => setNotification(data.msg))
         })} >
             
             <input type="text" onChange={getData} placeholder='Enter image url' ref={image} />
             <button>Submit</button>
         </form>
+            {getNotification &&  <div style={{backgroundColor: "lightblue", textAlign: "center", padding: "1rem"}} >{getNotification}</div>}
         <div style={{display: "flex", flexWrap: "wrap"}} >
             {getSrc && getSrc.map((item,i) => <Card getSrc={item.image} key={i} /> )}
         </div>
